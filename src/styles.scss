@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./scss/variables";
+@import "./scss/base" ;
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color:transparent; 
+    border-radius: 5px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:#a3a4a7; 
+    border-radius: 5px;
+  }

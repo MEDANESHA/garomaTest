@@ -1,0 +1,215 @@
+<app-side-bar></app-side-bar>
+<main id="home">
+    <div class="logo">
+        <h1>GAR</h1>
+        <svg class="logo-icon">
+            <use xlink:href="../assets/sprite.svg#icon-film2"></use>
+        </svg>
+        <h1>MA</h1>
+
+    </div>
+    <div class="suggestion" >
+        <div class="description">
+         
+            <h2>{{suggestedMovie.title}}</h2>
+            <div class="review">
+                <div class="starsBackground"  [style.width.%]="suggestedMovie.rating*10">
+
+                </div>
+                
+            </div>
+            <p>{{suggestedMovie.description}}</p>
+            <a class="infoButton" routerLink="{{'/movie/'+suggestedMovie.id}}" > <svg class="icon">
+                <use xlink:href="../assets/sprite.svg#icon-info1"></use>
+            </svg> More Info</a>
+        </div>
+        <div class="poster">
+           <img src="{{suggestedMovie.poster1}}" alt="">
+        </div>
+    </div>
+    <div class="trendingMovies" id="trendingMovies">
+        <h2 class="title">Trending Movies <a href=""><strong>See All</strong></a></h2>
+        <div class="movieSlider">
+            <button [ngClass]="counter==0?'disabled':'Previous'"  (click)="scrollLeft()">
+                <svg >
+                    <use xlink:href="../assets/sprite.svg#icon-chevron-thin-left"></use>
+                </svg>
+            </button>
+            <div class="movies" #trendingList >
+                
+                <div class="movie"  *ngFor="let movie of trendingMovies" >
+                    <button class="favorite" (click)="setFavorite(movie.id)"   >
+                        <svg *ngIf="!movie.favorite">
+                            <use xlink:href="../assets/sprite.svg#icon-heart-stroke"></use>
+                        </svg>
+                        <svg style="fill: red;" *ngIf="movie.favorite">
+                            <use xlink:href="../assets/sprite.svg#icon-heart-fill"></use>
+                        </svg>
+                    </button>
+                    <a routerLink="{{'/movie/'+movie.id}}" style="text-decoration:none ;">
+                       
+                        
+                            <figure class="movie-image">
+                            <img src="{{movie.poster2}}" alt="">
+                        
+                           <figcaption>
+                            <div class="movie-title"> {{movie.title}}</div>
+                            <div class="movie-ratting">
+                                <div class="stars">
+                                    <div class="starsBackground"  [style.width.%]="movie.rating*10">
+
+                                    </div>
+                                </div>
+                                
+                                <p >{{movie.rating}}</p>
+                            </div>
+                            </figcaption>
+                        </figure>
+                       
+                    </a>
+
+                </div>
+            
+            
+
+</div>
+<button  [ngClass]="counter==2?'disabled':'Next'" (click)="scrollRight()">
+    <svg >
+        <use xlink:href="../assets/sprite.svg#icon-chevron-thin-right"></use>
+    </svg>
+</button>
+            
+        </div>
+    </div>
+
+   
+
+
+    <div cdkDropListGroup>
+    <div class="MovieList example-container" id="movieList">
+        <h2 class="title">Movie List <a href=""><strong>See All</strong></a></h2>
+        <div class="movieSlider">
+            <button [ngClass]="counter2==0?'disabled':'Previous'"  (click)="scrollLeft2()">
+                <svg >
+                    <use xlink:href="../assets/sprite.svg#icon-chevron-thin-left"></use>
+                </svg>
+            </button>
+            <div
+            cdkDropList #movieSlider
+            [cdkDropListData]="movies"
+            class="example-list movies"
+            cdkDropListSortingDisabled
+            (cdkDropListDropped)="drop($event)">
+           
+                <div class="movie example-box"  *ngFor="let movie of movies" cdkDrag>
+                    <button class="favorite" (click)="setFavorite(movie.id)"   >
+                        <svg *ngIf="!movie.favorite">
+                            <use xlink:href="../assets/sprite.svg#icon-heart-stroke"></use>
+                        </svg>
+                        <svg style="fill: red;" *ngIf="movie.favorite">
+                            <use xlink:href="../assets/sprite.svg#icon-heart-fill"></use>
+                        </svg>
+                    </button>
+                    <a routerLink="{{'/movie/'+movie.id}}" style="text-decoration:none ;">
+                       
+                        
+                            <figure class="movie-image">
+                            <img src="{{movie.poster2}}" alt="">
+                        
+                           <figcaption>
+                            <div class="movie-title"> {{movie.title}}</div>
+                            <div class="movie-ratting">
+                                <div class="stars">
+                                    <div class="starsBackground"  [style.width.%]="movie.rating*10">
+
+                                    </div>
+                                </div>
+                                
+                                <p >{{movie.rating}}</p>
+                            </div>
+                            </figcaption>
+                        </figure>
+                       
+                    </a>
+
+                </div>
+            
+            
+
+</div>
+<button  [ngClass]="counter2==6?'disabled':'Next'" (click)="scrollRight2()">
+    <svg >
+        <use xlink:href="../assets/sprite.svg#icon-chevron-thin-right"></use>
+    </svg>
+</button>
+            
+        </div>
+    </div>
+
+
+
+    <div class="watchedMovies example-container" id="watchedMovies">
+        <h2 class="title">Watched Movies <a href=""><strong>See All</strong></a></h2>
+        <div class="movieSlider">
+            <button [ngClass]="counter3==0?'disabled':'Previous'"  (click)="scrollLeft3()">
+                <svg >
+                    <use xlink:href="../assets/sprite.svg#icon-chevron-thin-left"></use>
+                </svg>
+            </button>
+            <div
+            cdkDropList #watchedList
+            [cdkDropListData]="watchedMovies"
+            class="example-list movies"
+            (cdkDropListDropped)="drop($event)">
+            
+                <div class="movie example-box"  *ngFor="let movie of watchedMovies" cdkDrag>
+                    <button class="favorite" (click)="setFavorite(movie.id)"   >
+                        <svg *ngIf="!movie.favorite">
+                            <use xlink:href="../assets/sprite.svg#icon-heart-stroke"></use>
+                        </svg>
+                        <svg style="fill: red;" *ngIf="movie.favorite">
+                            <use xlink:href="../assets/sprite.svg#icon-heart-fill"></use>
+                        </svg>
+                    </button>
+                    <a routerLink="{{'/movie/'+movie.id}}" style="text-decoration:none ;">
+                       
+                        
+                            <figure class="movie-image">
+                            <img src="{{movie.poster2}}" alt="">
+                        
+                           <figcaption>
+                            <div class="movie-title"> {{movie.title}}</div>
+                            <div class="movie-ratting">
+                                <div class="stars">
+                                    <div class="starsBackground"  [style.width.%]="movie.rating*10">
+
+                                    </div>
+                                </div>
+                                
+                                <p >{{movie.rating}}</p>
+                            </div>
+                            </figcaption>
+                        </figure>
+                       
+                    </a>
+
+                </div>
+            
+            
+
+</div>
+<button  [ngClass]="counter3==2?'disabled':'Next'" (click)="scrollRight3()">
+    <svg >
+        <use xlink:href="../assets/sprite.svg#icon-chevron-thin-right"></use>
+    </svg>
+</button>
+            
+        </div>
+    </div>
+</div>
+</main>
+
+
+
+
+<app-footer></app-footer>

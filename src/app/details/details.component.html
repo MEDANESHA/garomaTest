@@ -1,0 +1,47 @@
+<app-side-bar></app-side-bar>
+<main>
+    <div class="selectedMovie">
+        <div class="description">
+            <div class="logo">
+                <h1>GAR</h1>
+                <svg class="logo-icon">
+                    <use xlink:href="../assets/sprite.svg#icon-film2"></use>
+                </svg>
+                <h1>MA</h1>
+
+            </div>
+            <h2 id="title">{{selectedMovie.title}}</h2>
+            <div class="review">
+               
+                    <div class="starsBackground"  [style.width.%]="selectedMovie.rating*10">
+    
+                    </div>
+
+            </div>
+            <p>{{selectedMovie.description}}</p>
+           
+        </div>
+        <div class="poster">
+           <img src="{{selectedMovie.poster1}}" alt="">
+        </div>
+    </div>
+
+<div class="selectedMovieDesc">
+    <div class="poster">
+        <img src="{{selectedMovie.poster2}}" alt="">
+    </div>
+    <div class="text">
+        <h2>Description :</h2><br>
+        <p>{{selectedMovie.description}}</p>
+        <table>
+            <tr><td> Released :</td> <td>{{selectedMovie.Released}}</td></tr>
+            <tr><td>Genre :</td> <td>{{selectedMovie.genres}}</td></tr>
+        </table>
+        
+
+    </div>
+</div>
+</main>
+<app-footer></app-footer>
+
+
