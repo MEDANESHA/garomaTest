@@ -14,7 +14,7 @@ main{
         top: 1rem;
         left: 6rem;
         z-index: 100;
-        align-items: center;
+        
         font-family: cursive;
         svg{
             fill: red;
@@ -192,7 +192,7 @@ main{
                 white-space: nowrap;
                
                 display: flex;
-                height: 20rem;
+                height: 21rem;
                 padding: 0 1rem;
            
           
@@ -245,7 +245,7 @@ main{
             .movie-ratting{
                 margin-bottom: 1rem;
                 display: flex;
-                align-items: center;
+                
                 .stars{
                 background-image: url("../../assets/images/stars.png");
                 background-repeat: no-repeat;
@@ -341,7 +341,7 @@ display: none;
 
 .movie-ratting{
     display: flex;
-    align-items: center;
+  
     p{
         margin-left: 0.6rem;
         color: gray;
